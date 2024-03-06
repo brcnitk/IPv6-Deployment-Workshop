@@ -2,7 +2,7 @@
 ## Introduction
 Before we begin with the demonstration, let us first look at the topology (diagramatic representation) of the network we are going to be working with:
 
-![Network Topology Image](/images/topology.png)
+![Network Topology Image](/IPSec/images/topology.png)
 
 In this topology, there are 2 Clients *comp1* and *comp2* who wish to communicate with each other using IPsec. The two clients are seperated from each other by 2 gateways (i.e., each client is connected to a gateway and the gateways are connected to each other)
 Today, our goal is to enable and explore IPsec in the transport mode and IPsec in the tunnel mode. 
