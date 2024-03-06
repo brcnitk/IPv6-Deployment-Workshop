@@ -14,7 +14,9 @@ Today, our goal is to enable and explore communication between the 2 clients usi
 3. To run Oracle Virtualbox, Select the "Show Applications" icon present at the bottom left of your screen, then scroll through the applications and select "Oracle VM Virtualbox"
 
 ![Application Menu Image](/IPSec/images/Application-Menu.png)
+
 ![Virtualbox Image](/IPSec/images/Virtualbox.png)
+
 5. In the Oracle VM VirtualBox Manager, you should be able to see 4 Virtual Machines already set up in your systems
    - comp1
    - gateway-1
