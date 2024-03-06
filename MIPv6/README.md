@@ -42,7 +42,7 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
     ```
     in the `nmcli>` interface.
 
-4. A file is formed at `/etc/NetworkManager/systemconnection/` named as Wired Connection 1.
+4. A file is formed at `/etc/NetworkManager/systemconnection/` named as `Wired connection 1.nmconnection`.
 
 5. Open the file and do the following changes:
 -   **Home Agent Interface 1:**
@@ -50,6 +50,7 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
     address1=2001:db8:aaaa:3::1/64
     method=manual
     ```
+Repeat the above step from 2 to 3 to create another file for network interface 2. Here the file name will be `Wired connection 2.nmconnection` and you have to do make changes in this file.
 -   **Home Agent Interface 2:**
     ```
     address1=2001:db8:aaaa:2::2/64
@@ -106,8 +107,8 @@ UseMnHaIPsec disabled;
 DoRouteOptimizationMN enabled;
 UseCnBuAck enabled;
 MnHomeLink "enp0s8" {
-HomeAgentAddress 2001:db8:aaaa:3::1;
-HomeAddress 2001:db8:aaaa:3::2/64;
+    HomeAgentAddress 2001:db8:aaaa:3::1;
+    HomeAddress 2001:db8:aaaa:3::2/64;
 }
 
 ```
@@ -121,24 +122,24 @@ DoRouteOptimizationCN enabled;
 ### radvd configuration
 - Home Agent
 ```
-interface eth0
+interface enp0s8
 {
-AdvSendAdvert on;
-AdvIntervalOpt off;
-AdvHomeAgentFlag on;
-MaxRtrAdvInterval 3;
-MinRtrAdvInterval 1;
-HomeAgentLifetime 10000;
-HomeAgentPreference 20;
-AdvHomeAgentInfo on;
-prefix 2001:db8:aaaa:3::1/64
-{
-AdvRouterAddr on;
-AdvOnLink on;
-AdvAutonomous on;
-AdvPreferredLifetime 10000;
-AdvValidLifetime 12000;
-};
+    AdvSendAdvert on;
+    AdvIntervalOpt off;
+    AdvHomeAgentFlag on;
+    MaxRtrAdvInterval 3;
+    MinRtrAdvInterval 1;
+    HomeAgentLifetime 10000;
+    HomeAgentPreference 20;
+    AdvHomeAgentInfo on;
+    prefix 2001:db8:aaaa:3::1/64
+    {
+        AdvRouterAddr on;
+        AdvOnLink on;
+        AdvAutonomous on;
+        AdvPreferredLifetime 10000;
+        AdvValidLifetime 12000;
+    };
 };
 
 ```
@@ -147,17 +148,17 @@ AdvValidLifetime 12000;
 ```
 interface enp0s9
 {
-AdvSendAdvert on;
-AdvIntervalOpt on;
-MinRtrAdvInterval 1;
-MaxRtrAdvInterval 3;
-AdvHomeAgentFlag off;
-prefix 2001:db8:aaaa:1::1/64
-{
-AdvOnLink on;
-AdvAutonomous on;
-AdvRouterAddr on;
-};
+    AdvSendAdvert on;
+    AdvIntervalOpt on;
+    MinRtrAdvInterval 1;
+    MaxRtrAdvInterval 3;
+    AdvHomeAgentFlag off;
+    prefix 2001:db8:aaaa:1::1/64
+    {
+        AdvOnLink on;
+        AdvAutonomous on;
+        AdvRouterAddr on;
+    };
 };
 
 ```
