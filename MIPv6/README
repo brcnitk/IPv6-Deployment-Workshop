@@ -47,14 +47,14 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 5. Open the file and do the following changes:
 -   **Home Agent Interface 1:**
     ```
-    address1=2001:db8:aaaa:2::1/64
+    address1=2001:db8:aaaa:3::1/64
     method=manual
     ```
 -   **Home Agent Interface 2:**
     ```
-    address1=2001:db8:aaaa:2::1/64
+    address1=2001:db8:aaaa:2::2/64
     method=manual
-    route1=2001:db8:aaaa:3::/64,2001:db8:aaaa:2::2
+    route1=2001:db8:aaaa:1::/64,2001:db8:aaaa:2::1
     ```
 -   **Router Interface 1:**
     ```
@@ -64,7 +64,7 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
     ```
 -   **Router Interface 2:**
     ```
-    address1=2001:db8:aaaa:2::1/64
+    address1=2001:db8:aaaa:1::1/64
     method=manual
     ```
 
