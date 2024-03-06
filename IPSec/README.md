@@ -2,7 +2,7 @@
 ##Introduction
 Before we begin with the demonstration, let us first look at the topology (diagramatic representation) of the network we are going to be working with:
 
-<Insert the topology here>
+<!-- Insert the topology here -->
 
 In this topology, there are 2 Clients *comp1* and *comp2* who wish to communicate with each other using IPsec. The two clients are seperated from each other by 2 gateways (i.e., each client is connected to a gateway and the gateways are connected to each other)
 Today, our goal is to enable and explore IPsec in the transport mode and IPsec in the tunnel mode. 
@@ -11,7 +11,7 @@ Today, our goal is to enable and explore IPsec in the transport mode and IPsec i
 1. We will be using 4 VMs (2 to act as Clients and 2 to act as Gateways)
 2. To run and manage the Virtual Machines, we will be using a tool called Oracle Virtual Box.
 3. To run Oracle Virtualbox, Select the "Show Applications" icon present at the bottom left of your screen, then scroll through the applications and select "Oracle VM Virtualbox"
-<Insert the virtual box icon screenshot here>
+<!--Insert the virtual box icon screenshot here -->
 4. In the Oracle VM VirtualBox Manager, you should be able to see 4 Virtual Machines already set up in your systems
    - comp1
    - gateway-1
