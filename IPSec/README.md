@@ -12,12 +12,14 @@ Today, our goal is to enable and explore communication between the 2 clients usi
 1. We will be using 4 VMs (2 to act as Clients and 2 to act as Gateways)
 2. To run and manage the Virtual Machines, we will be using a tool called Oracle Virtual Box.
 3. To run Oracle Virtualbox, Select the "Show Applications" icon present at the bottom left of your screen, then scroll through the applications and select "Oracle VM Virtualbox"
-<!--Insert the virtual box icon screenshot here -->
-4. In the Oracle VM VirtualBox Manager, you should be able to see 4 Virtual Machines already set up in your systems
+![Application Menu Image](/IPSec/images/Application-Menu.png)
+![Virtualbox Image](/IPSec/images/Virtualbox.png)
+5. In the Oracle VM VirtualBox Manager, you should be able to see 4 Virtual Machines already set up in your systems
    - comp1
    - gateway-1
    - gateway-2
    - comp2
+![Virtualbox Manager Image](/IPSec/images/vmMenu.png)
 
 ### Setting up the basic network connections in your VMs
 Any networking device will have an interface using which it connects to other devices. 
@@ -28,6 +30,8 @@ So, the Ethernet port to which you connect your LAN cable is also an interface. 
 To simulate the topology shown above, we will today create our own logical interfaces and then make connections in the Oracle VM Virtualbox Manager.
 1. In the topology, diagram we see that each device (Clients have 1 interface - enp0s3 and Gateways have 2 interfaces each - *enp0s3* and *enp0s8*"
    - *enp0s3* interface of comp1 is connected to *enp0s3* interface of gateway-1. To do this, follow these steps:
-      - 
-   - *enp0s8* interface of gateway-1 is connected to 
+   
+   - *enp0s8* interface of gateway-1 is connected to *enp0s8* interface of gateway-2. To do this, follow these steps:
+  
+   - *enp0s3* interface of gateway-2 is connected to *enp0s3* interface of comp2. To do this, follow these steps:
 
