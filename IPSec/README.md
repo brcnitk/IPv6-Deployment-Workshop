@@ -5,7 +5,8 @@ Before we begin with the demonstration, let us first look at the topology (diagr
 ![Network Topology Image](/IPSec/images/topology.png)
 
 In this topology, there are 2 Clients *comp1* and *comp2* who wish to communicate with each other using IPsec. The two clients are seperated from each other by 2 gateways (i.e., each client is connected to a gateway and the gateways are connected to each other)
-Today, our goal is to enable and explore IPsec in the transport mode and IPsec in the tunnel mode. 
+
+Today, our goal is to enable and explore communication between the 2 clients using IPsec in the transport mode and tunnel mode. 
 
 ### Getting to know your Virtual Machines (VMs)
 1. We will be using 4 VMs (2 to act as Clients and 2 to act as Gateways)
@@ -26,7 +27,7 @@ So, the Ethernet port to which you connect your LAN cable is also an interface. 
 
 To simulate the topology shown above, we will today create our own logical interfaces and then make connections in the Oracle VM Virtualbox Manager.
 1. In the topology, diagram we see that each device (Clients have 1 interface - enp0s3 and Gateways have 2 interfaces each - *enp0s3* and *enp0s8*"
-   - *enp0s3* interface of comp1 is connected to *enp0s3* interface of gateway-1
-      - To do this, follow these steps
+   - *enp0s3* interface of comp1 is connected to *enp0s3* interface of gateway-1. To do this, follow these steps:
+      - 
    - *enp0s8* interface of gateway-1 is connected to 
 
