@@ -20,6 +20,7 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 1. Set up the network interfaces of the virtual machines to use an internal network type within VirtualBox. This is done to ensure isolation and control over the network environment, which is crucial for testing purposes.
 
 ![img](images/Network_interface_creation.jpg)
+
 2. Name the network interface as mip-h (Home Network), mip-r (Router Network), mip-f (Foreign Network).
 
 3. Assign the following network interface to the following Virtual Machine:
@@ -34,12 +35,15 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
      nmcli c
      nmcli c edit $uuid
      ```
+    The `nmcli` command is used to manage the network connections in linux. It is used to create, delete, activate and deactivate the network interface. To know more about this command visit [Configuring IP Networking with nmcli - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli).
+
+    ![img](images/nmcli_command.PNG)
+    
 2. Replace `$uuid` with the UUID of the network connection you wish to configure. This will open up the NetworkManager editor for the selected connection, allowing you to modify its settings. Then the `nmcli>` interface will appear.
 
 3. To save it use:
     ```
     save persistent
-
     ```
     in the `nmcli>` interface.
 
@@ -266,3 +270,4 @@ ifconfig
 
 ## Conclusion
 Following these instructions will help you set up a testbed environment for Mobile IPv6 using Fedora virtual machines in Oracle VirtualBox. Ensure to follow each step carefully to achieve the desired configuration.
+
