@@ -19,6 +19,7 @@ Today, our goal is to enable and explore communication between the 2 clients usi
    - gateway-1
    - gateway-2
    - comp2
+
 ![Virtualbox Manager Image](/IPSec/images/vmMenu.png)
 
 ### Setting up the basic network connections in your VMs
