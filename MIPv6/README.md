@@ -5,7 +5,7 @@ This README provides step-by-step instructions for setting up a testbed environm
 
 ## Prerequisites
 - Oracle VirtualBox: Download and install Oracle VirtualBox from [Oracle's official website](https://www.virtualbox.org/).
-- Fedora OS: Download the Fedora ISO image from [Fedora's official website](https://getfedora.org/).
+- Fedora OS: Download the Fedora ISO image from [Fedora's official website](https://fedoraproject.org/workstation/download).
 
 ## Setup Instructions
 ### Virtual Machine Setup
