@@ -61,7 +61,7 @@ Now, let us make these networks in the VM Manager
    
    To do this, follow these steps
    
-      ![Virtualbox Manager Image](/IPSec/images/network1.png)
+   ![Virtualbox Manager Image](/IPSec/images/network1.png)
 
       **comp1 configuration**
       1. Select *comp1* on the left pane of the Virtualbox VM Manager.
