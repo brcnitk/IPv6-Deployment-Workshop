@@ -60,47 +60,46 @@ Now, let us make these networks in the VM Manager
    - *enp0s3* interface of gateway-2 is connected to *enp0s3* interface of comp2 (vboxnet2).
    
    To do this, follow these steps
+
+   **comp1 configuration**
    
    ![Virtualbox Manager Image](/IPSec/images/network1.png)
+   
+   1. Select *comp1* on the left pane of the Virtualbox VM Manager.
+   2. On the top pane, select Settings as shown in the figure.
 
-      **comp1 configuration**
-      1. Select *comp1* on the left pane of the Virtualbox VM Manager.
-      2. On the top pane, select Settings as shown in the figure.
+   ![Virtualbox Manager Image](/IPSec/images/network4.png)
 
-      ![Virtualbox Manager Image](/IPSec/images/network4.png)
+   4. Select the "Network" option
+   5. Change the "Attached to:" from "NAT" to "Host-only Adapter" and the "Name:" to "vboxnet0"
+   6. Click "OK" to confirm the settings
 
-      4. Select the "Network" option
-      5. Change the "Attached to:" from "NAT" to "Host-only Adapter" and the "Name:" to "vboxnet0"
-      6. Click "OK" to confirm the settings
-
-      Similarly, configure in the other VMs using the following configurations
+   Similarly, configure in the other VMs using the following configurations
       
-      **gateway1 configuration**
-      1. Select *gateway1* on the left pane of the Virtualbox VM Manager.
-      2. On the top pane, select Settings.
-      3. Select the "Network" option
-      4. Change the "Attached to:" from "NAT" to "Host-only Adapter" and the "Name:" to "vboxnet0"
-      5. Select the "Adapter 2"
-      6. Enable the Network Adapter by checking the box
-      7. Change the "Attached to:" from "Not Attached" to "Host-only Adapter" and the "Name:" to "vboxnet1"
-      8. Click "OK" to confirm the settings
+   **gateway1 configuration**
+   1. Select *gateway1* on the left pane of the Virtualbox VM Manager.
+   2. On the top pane, select Settings.
+   3. Select the "Network" option
+   4. Change the "Attached to:" from "NAT" to "Host-only Adapter" and the "Name:" to "vboxnet0"
+   5. Select the "Adapter 2"
+   6. Enable the Network Adapter by checking the box
+   7. Change the "Attached to:" from "Not Attached" to "Host-only Adapter" and the "Name:" to "vboxnet1"
+   8. Click "OK" to confirm the settings
     
-      **gateway2 configuration**
-      1. Select *gateway2* on the left pane of the Virtualbox VM Manager.
-      2. On the top pane, select Settings.
-      3. Select the "Network" option
-      4. Change the "Attached to:" from "NAT" to "Host-only Adapter" and the "Name:" to "vboxnet1"
-      5. Select the "Adapter 2"
-      6. Enable the Network Adapter by checking the box
-      7. Change the "Attached to:" from "Not Attached" to "Host-only Adapter" and the "Name:" to "vboxnet2"
-      8. Click "OK" to confirm the settings
+   **gateway2 configuration**
+   1. Select *gateway2* on the left pane of the Virtualbox VM Manager.
+   2. On the top pane, select Settings.
+   3. Select the "Network" option
+   4. Change the "Attached to:" from "NAT" to "Host-only Adapter" and the "Name:" to "vboxnet1"
+   5. Select the "Adapter 2"
+   6. Enable the Network Adapter by checking the box
+   7. Change the "Attached to:" from "Not Attached" to "Host-only Adapter" and the "Name:" to "vboxnet2"
+   8. Click "OK" to confirm the settings
     
-      **comp2 configuration**
-      1. Select *comp2* on the left pane of the Virtualbox VM Manager.
-      2. On the top pane, select Settings as shown in the figure.
-      3. Select the "Network" option
-      4. Change the "Attached to:" from "NAT" to "Host-only Adapter" and the "Name:" to "vboxnet2"
-      5. Click "OK" to confirm the settings.
-
-
+   **comp2 configuration**
+   1. Select *comp2* on the left pane of the Virtualbox VM Manager.
+   2. On the top pane, select Settings as shown in the figure.
+   3. Select the "Network" option
+   4. Change the "Attached to:" from "NAT" to "Host-only Adapter" and the "Name:" to "vboxnet2"
+   5. Click "OK" to confirm the settings.
 
