@@ -1,14 +1,14 @@
 ## Router Configuration in 3 Network (PC <---> R1 <---> R2 <---> PC) Setup
 
-1. Enable
+1. Enable for privilage interface
    
        Router>enable
        Router#
-3. configure terminal
+3. To enter into command interface
    
        Router#configure terminal
        Router(config)#
-4. Unicast Routing
+4. Enable unicast Routing (only once on a router)
 
         Router(config)#ipv6 unicast-routing 
         Router(config)#
