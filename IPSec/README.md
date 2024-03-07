@@ -32,9 +32,38 @@ Any networking device will have an interface using which it connects to other de
 So, the Ethernet port to which you connect your LAN cable is also an interface. These interfaces that we can physically see are called physical interfaces.
 
 To simulate the topology shown above, we will today create our own logical interfaces and then make connections in the Oracle VM Virtualbox Manager.
+
+Since there are 3 different networks in our topology 
+   - gateway1 -> gateway2 is a network with addresses starting with prefix **fec0::**
+   - gateway1 -> comp1 is another network with addresses starting with prefix **fec1::**
+     
+     > Note that there might be other hosts (comp2, comp3, etc.) present in this subnetwork with IP addresses **fec1::**2, **fec1::**3, etc. However, for the sake of simplicity, we will only consider 1 host (comp1) in our architecture.
+     
+   - gateway2 -> comp2 is another network with addresses starting with prefix **fec2::**
+
+     > Note that there might be other hosts (comp2, comp3, etc.) present in this subnetwork with IP addresses **fec2::**2, **fec2::**3, etc. However, for the sake of simplicity, we will only consider 1 host (comp2) in our architecture.
+
+Now, let us make these networks in the VM Manager
+
+   ![Virtualbox Manager Image](/IPSec/images/network2.png)
+
+   1. Select "Tools" on the left side panel
+   2. Select the "Network" option
+   
+   ![Virtualbox Manager Image](/IPSec/images/network3.png)
+
+   3. Select "Create" thrice to create 3 different networks. (vboxnet0, vboxnet1, vboxnet2)
+
 1. In the topology, diagram we see that each device (Clients have 1 interface - enp0s3 and Gateways have 2 interfaces each - *enp0s3* and *enp0s8*"
    - *enp0s3* interface of comp1 is connected to *enp0s3* interface of gateway-1. To do this, follow these steps:
-   
+
+      ![Virtualbox Manager Image](/IPSec/images/network1.png)
+     
+      1. Select *comp1* on the left pane of the Virtualbox VM Manager.
+      2. On the top pane, select Settings as shown in the figure.
+      3.  
+       
+      - 
    - *enp0s8* interface of gateway-1 is connected to *enp0s8* interface of gateway-2. To do this, follow these steps:
   
    - *enp0s3* interface of gateway-2 is connected to *enp0s3* interface of comp2. To do this, follow these steps:
