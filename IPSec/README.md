@@ -58,8 +58,6 @@ Now, let us make these networks in the VM Manager
    - *enp0s3* interface of comp1 is connected to *enp0s3* interface of gateway-1 (vboxnet0). 
    - *enp0s8* interface of gateway-1 is connected to *enp0s8* interface of gateway-2 (vboxnet1). 
    - *enp0s3* interface of gateway-2 is connected to *enp0s3* interface of comp2 (vboxnet2).
-   
-   To do this, follow these steps
 
    **comp1 configuration**
    
