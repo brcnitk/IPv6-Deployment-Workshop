@@ -37,24 +37,25 @@ Since there are 3 different networks in our topology
    - gateway1 -> gateway2 is a network with addresses starting with prefix **fec0::**
    - gateway1 -> comp1 is another network with addresses starting with prefix **fec1::**
      
-     > Note that there might be other hosts (comp2, comp3, etc.) present in this subnetwork with IP addresses **fec1::**2, **fec1::**3, etc. However, for the sake of simplicity, we will only consider 1 host (comp1) in our architecture.
+     > Note that there might be other hosts (comp2, comp3, etc.) present in this subnetwork with IP addresses fec1::2, fec1::3, etc. However, for the sake of simplicity, we will only consider 1 host (comp1) in our architecture.
      
    - gateway2 -> comp2 is another network with addresses starting with prefix **fec2::**
 
-     > Note that there might be other hosts (comp2, comp3, etc.) present in this subnetwork with IP addresses **fec2::**2, **fec2::**3, etc. However, for the sake of simplicity, we will only consider 1 host (comp2) in our architecture.
+     > Note that there might be other hosts (comp2, comp3, etc.) present in this subnetwork with IP addresses fec2::2, fec2::3, etc. However, for the sake of simplicity, we will only consider 1 host (comp2) in our architecture.
 
 Now, let us make these networks in the VM Manager
 
-   ![Virtualbox Manager Image](/IPSec/images/network2.png)
-
    1. Select "Tools" on the left side panel
    2. Select the "Network" option
-   
-   ![Virtualbox Manager Image](/IPSec/images/network3.png)
+
+   ![Virtualbox Manager Image](/IPSec/images/network2.png)
 
    3. Select "Create" thrice to create 3 different networks. (vboxnet0, vboxnet1, vboxnet2)
 
-1. In the topology, diagram we see that each device (Clients have 1 interface - enp0s3 and Gateways have 2 interfaces each - *enp0s3* and *enp0s8*"
+   ![Virtualbox Manager Image](/IPSec/images/network3.png)
+
+
+   1. In the topology, diagram we see that each device (Clients have 1 interface - enp0s3 and Gateways have 2 interfaces each - *enp0s3* and *enp0s8*"
    - *enp0s3* interface of comp1 is connected to *enp0s3* interface of gateway-1. To do this, follow these steps:
 
       ![Virtualbox Manager Image](/IPSec/images/network1.png)
