@@ -4,7 +4,7 @@
    
        Router>enable
        Router#
-3. To enter into command interface
+3. To enter into command interface or global configuration  mode.
    
        Router#configure terminal
        Router(config)#
