@@ -8,7 +8,7 @@ In this topology, there are 2 Clients *comp1* and *comp2* who wish to communicat
 
 Today, our goal is to enable and explore communication between the 2 clients using IPsec in the transport mode and tunnel mode. 
 
-### Getting to know your Virtual Machines (VMs)
+## Getting to know your Virtual Machines (VMs)
 1. We will be using 4 VMs (2 to act as Clients and 2 to act as Gateways)
 2. To run and manage the Virtual Machines, we will be using a tool called Oracle Virtual Box.
 3. To run Oracle Virtualbox, Select the "Show Applications" icon present at the bottom left of your screen, then scroll through the applications and select "Oracle VM Virtualbox"
@@ -25,7 +25,7 @@ Today, our goal is to enable and explore communication between the 2 clients usi
 
 ![Virtualbox Manager Image](/IPSec/images/vmMenu.png)
 
-### Setting up the basic network connections in your VMs
+## Setting up the basic network connections in your VMs
 Any networking device will have an interface using which it connects to other devices. 
 - An interface is a boundary or a surface where two different systems or components meet and interact.
 - In networking, an interface represents the connection point between a device and a network medium (such as an Ethernet cable or a wireless channel).
