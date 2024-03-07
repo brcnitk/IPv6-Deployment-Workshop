@@ -1,4 +1,4 @@
-## Router Configuration in 3 network (PC <---> R1 <---> R2 <---> PC) setup
+## Router Configuration in 3 Network (PC <---> R1 <---> R2 <---> PC) Setup
 
 1. Enable
    
