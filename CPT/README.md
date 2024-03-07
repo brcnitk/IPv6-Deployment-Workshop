@@ -35,4 +35,7 @@
          Router(config)#
 11. End
 
-         Router(config-if)#end 
+         Router(config-if)#end
+12. To view the interface detail
+
+         Router(config-if)#show ipv6 interface brief
