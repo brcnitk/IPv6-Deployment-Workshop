@@ -54,9 +54,8 @@ Now, let us make these networks in the VM Manager
 
    ![Virtualbox Manager Image](/IPSec/images/network3.png)
 
-
-   1. In the topology, diagram we see that each device (Clients have 1 interface - enp0s3 and Gateways have 2 interfaces each - *enp0s3* and *enp0s8*"
-   - *enp0s3* interface of comp1 is connected to *enp0s3* interface of gateway-1. To do this, follow these steps:
+   4. In the topology, diagram we see that each device (Clients have 1 interface - enp0s3 and Gateways have 2 interfaces each - *enp0s3* and *enp0s8*"
+   - *enp0s3* interface of comp1 is connected to *enp0s3* interface of gateway-1 (vboxnet0). To do this, follow these steps:
 
       ![Virtualbox Manager Image](/IPSec/images/network1.png)
      
