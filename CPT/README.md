@@ -8,7 +8,7 @@
    
        Router#configure terminal
        Router(config)#
-4. Enable unicast uouting (only once on a router)
+4. Enable unicast routing (only once on a router). This is essential for IPv6 autoconfigure in end system.
 
         Router(config)#ipv6 unicast-routing 
         Router(config)#
