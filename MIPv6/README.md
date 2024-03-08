@@ -82,7 +82,7 @@ Repeat the above step from 2 to 3 to create another file for network interface 2
 dnf install radvd
 ```
 
-**Note**
+> **Note**
 - radvd should be installed only in Home Agent (HA), Router.
 
 ### radvd configuration
@@ -188,7 +188,7 @@ net.ipv6.conf.all.accept_redirects = 1
 ```
 dnf install ~/Downloads/mipv6-daemon
 ```
-**Note**
+> **Note**
 - mip6d should be installed only in Home Agent (HA), Mobile Node (MN), Correspondent Node (CN).
 ### mip6d configuration
 - Home Agent
