@@ -56,6 +56,8 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 
 5. A file is formed at `/etc/NetworkManager/systemconnection/` named as `Wired connection 1.nmconnection`.
 
+![img](images/nm_file.PNG)
+
 6. Open the file and do the following changes:
 -   **Home Agent Interface 1:**
     ```
@@ -63,6 +65,8 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
     method=manual
     ```
 Repeat the above step from 2 to 3 to create another file for network interface 2. Here the file name will be `Wired connection 2.nmconnection` and you have to do make changes in this file.
+
+![img](images/nm_file_1.PNG)
 -   **Home Agent Interface 2:**
     ```
     address1=2001:db8:aaaa:2::2/64
