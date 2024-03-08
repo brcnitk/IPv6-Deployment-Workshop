@@ -74,56 +74,17 @@ Repeat the above step from 2 to 3 to create another file for network interface 2
     method=manual
     ```
 
-### mip6d and radvd installation
-1. Download the rpm file of mip6d from [Linux@ CERN mipv6 - daemon website ](https://linuxsoft.cern.ch/cern/centos/7/updates/x86_64/repoview/mipv6-daemon.html)
+### radvd installation
 
-2. Install the mip6d using the following command:
-```
-dnf install ~/Downloads/mipv6-daemon
+1. Download and Install the radvd using the following command:
 
-```
-
-3. Download and Install the radvd using the following command:
 ```
 dnf install radvd
-
 ```
-> **Note**
-- mip6d should be installed only in Home Agent (HA), Mobile Node (MN), Correspondence Node (CN).
+
+**Note**
 - radvd should be installed only in Home Agent (HA), Router.
 
-### mip6d configuration
-- Home Agent
-```
-NodeConfig HA;
-DebugLevel 10;
-DoRouteOptimizationCN enabled;
-Interface "enp0s8";
-UseMnHaIPsec disabled;
-
-```
-- Mobile Node
-```
-NodeConfig MN;
-DebugLevel 10;
-DoRouteOptimizationCN enabled;
-Interface "enp0s8";
-UseMnHaIPsec disabled;
-DoRouteOptimizationMN enabled;
-UseCnBuAck enabled;
-MnHomeLink "enp0s8" {
-    HomeAgentAddress 2001:db8:aaaa:3::1;
-    HomeAddress 2001:db8:aaaa:3::2/64;
-}
-
-```
-- Correspondence Node
-```
-NodeConfig CN;
-DebugLevel 10;
-DoRouteOptimizationCN enabled;
-
-```
 ### radvd configuration
 - Home Agent
 ```
@@ -167,6 +128,21 @@ interface enp0s9
 };
 
 ```
+
+### radvd start and on-bootup setting
+Start the radvd in Home Agent and Router using:
+```
+systemctl start radvd
+```
+Make it on-boot startup using:
+```
+systemctl enable radvd
+```
+Check the radvd status using:
+```
+systemctl status radvd
+```
+
 ### Kernel Parameter Configuration
 1. Create a file named as `zz-mip6d.conf` in `/etc/sysctl.d/` directory to change the kernel configuration.
 Here `zz` is used before the file name to give it higher priority.
@@ -204,18 +180,47 @@ net.ipv6.conf.all.accept_ra = 1
 net.ipv6.conf.all.accept_redirects = 1
 
 ```
-### radvd start and on-bootup setting
-Start the radvd in Home Agent and Router using:
+
+### mip6d installation
+1. Download the rpm file of mip6d from [Linux@ CERN mipv6 - daemon website ](https://linuxsoft.cern.ch/cern/centos/7/updates/x86_64/repoview/mipv6-daemon.html)
+
+2. Install the mip6d using the following command:
 ```
-systemctl start radvd
+dnf install ~/Downloads/mipv6-daemon
 ```
-Make it on-boot startup using:
+**Note**
+- mip6d should be installed only in Home Agent (HA), Mobile Node (MN), Correspondent Node (CN).
+### mip6d configuration
+- Home Agent
 ```
-systemctl enable radvd
+NodeConfig HA;
+DebugLevel 10;
+DoRouteOptimizationCN enabled;
+Interface "enp0s8";
+UseMnHaIPsec disabled;
+
 ```
-Check the radvd status using:
+- Mobile Node
 ```
-systemctl status radvd
+NodeConfig MN;
+DebugLevel 10;
+DoRouteOptimizationCN enabled;
+Interface "enp0s8";
+UseMnHaIPsec disabled;
+DoRouteOptimizationMN enabled;
+UseCnBuAck enabled;
+MnHomeLink "enp0s8" {
+    HomeAgentAddress 2001:db8:aaaa:3::1;
+    HomeAddress 2001:db8:aaaa:3::2/64;
+}
+
+```
+- Correspondence Node
+```
+NodeConfig CN;
+DebugLevel 10;
+DoRouteOptimizationCN enabled;
+
 ```
 
 ### Disabling the Firewall
