@@ -47,9 +47,14 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
     ```
     in the `nmcli>` interface.
 
-4. A file is formed at `/etc/NetworkManager/systemconnection/` named as `Wired connection 1.nmconnection`.
+4. To quit from the `nmcli>` interface use
+    ```
+    quit
+    ```
 
-5. Open the file and do the following changes:
+5. A file is formed at `/etc/NetworkManager/systemconnection/` named as `Wired connection 1.nmconnection`.
+
+6. Open the file and do the following changes:
 -   **Home Agent Interface 1:**
     ```
     address1=2001:db8:aaaa:3::1/64
