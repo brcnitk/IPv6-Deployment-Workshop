@@ -41,6 +41,8 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
     
 2. Replace `$uuid` with the UUID of the network connection you wish to configure. This will open up the NetworkManager editor for the selected connection, allowing you to modify its settings. Then the `nmcli>` interface will appear.
 
+![img](images/nmcli_edit.PNG)
+
 3. To save it use:
     ```
     save persistent
