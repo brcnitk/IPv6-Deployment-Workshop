@@ -11,10 +11,10 @@ This README provides step-by-step instructions for setting up a testbed environm
 ### Virtual Machine Setup
 #### Virtual Machine Creation: 
 Create four virtual machines in Oracle VirtualBox and name them accordingly:
-   - Fedora - HA
-   - Fedora - MN
-   - Fedora - Router
-   - Fedora - CN
+   - Home-Agent
+   - Mobile-Node
+   - Router
+   - Correspondent-Node
 
 #### Network Interface Setup:
 1. Set up the network interfaces of the virtual machines to use an internal network type within VirtualBox. This is done to ensure isolation and control over the network environment, which is crucial for testing purposes.
@@ -24,10 +24,10 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 2. Name the network interface as mip-h (Home Network), mip-r (Router Network), mip-f (Foreign Network).
 
 3. Assign the following network interface to the following Virtual Machine:
--   Fedora - HA : mip-h, mip - r (2 Interface)
--   Fedora - Router : mip-r, mip - f (2 Interface)
--   Fedora - CN : mip-f (1 Interface)
--   Fedora - MN : mip-h, mip - f (1 Interface)
+-   Home-Agent : Network-1, Network-2 (2 Interface)
+-   Router : Network-2, Network-3 (2 Interface)
+-   Correspondent-Node : Network-3 (1 Interface)
+-   Mobile-Node : Network-1 (1 Interface)
 
 #### Network Interface Configuration Commands (Only for Router and Home Agent):
 1. Use the following commands to configure the network interface:
