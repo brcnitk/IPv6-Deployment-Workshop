@@ -1,7 +1,7 @@
 # Testbed Setup for Mobile IPv6
 
 ## Overview
-This README provides step-by-step instructions for setting up a testbed environment for Mobile IPv6 using Fedora virtual machines in Oracle VirtualBox. The testbed will consist of four virtual machines: Fedora - HA, Fedora - MN, Fedora - Router, and Fedora - CN.
+This README provides step-by-step instructions for setting up a testbed environment for Mobile IPv6 using Fedora virtual machines in Oracle VirtualBox. The testbed will consist of four virtual machines: Home-Agent, Mobile-Node, Router, and Correspondent-Node.
 
 ## Prerequisites
 - Oracle VirtualBox: Download and install Oracle VirtualBox from [Oracle's official website](https://www.virtualbox.org/).
@@ -242,7 +242,7 @@ systemctl disable firewalld
 ## Testing the Testbed
 1. After doing the configuration in all Virtual machine, disable the NAT network in VM network settings.
 2. Then disable the internet from the system and reboot the system.
-3. Turn on the `fedora - HA` and `fedora - Router` virtual machine.
+3. Turn on the `Home-Agent` and `Router` virtual machine.
 4. Check the `radvd status ` in the both machine using following command:
 ```
 systemctl status radvd
@@ -252,7 +252,7 @@ systemctl status radvd
 ip a
 ```
 6. You will see the IPv6 address which you assigned to the network interface. If not, then there is a mistake.
-7. Now Turn on the `fedora - MN` and `fedora - CN`.
+7. Now Turn on the `Mobile-Node` and `Correspondent-Node`.
 8. Check the IPv6 address using:
 ```
 ip a
