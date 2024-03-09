@@ -107,7 +107,7 @@ Now, let us make these networks in the VM Manager
 
 
 ## Check Status of radvd on Gateway1 and Gateway2
-Start Gateway1 and Gateway2 Virtual Machines.
+Start Gateway1 and Gateway2 Virtual Machines.  
 Run this command to make sure radvd is active(running) and enabled:
    On Gateway1:  systemctl status radvd
                  systemctl stop firewalld
