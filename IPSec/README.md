@@ -112,21 +112,21 @@ Run this command to make sure radvd is active(running) and enabled:
 &ensp;  On Gateway1:  systemctl status radvd  
                  systemctl stop firewalld  
                  systemctl disable firewalld  
-   On Gateway2:  systemctl status radvd  
+&ensp;  On Gateway2:  systemctl status radvd  
                  systemctl stop firewalld  
                  systemctl disable firewalld  
 Now, Minimise Gateway1 and Gateway2.Do not turn them off. Then,  
 
 Start Host1 and Host2 Virtual Machines.  
-   On Host1: ping <ipv6_addr_of_host2>  
-             systemctl stop firewalld  
-             systemctl disable firewalld  
-   On Host2: ping <ipv6_addr_of_host1>  
-             systemctl stop firewalld  
-             systemctl disable firewalld  
+&ensp;  On Host1: ping <ipv6_addr_of_host2>  
+&ensp;  &ensp;  systemctl stop firewalld  
+&ensp;  &ensp;  systemctl disable firewalld  
+&ensp;  On Host2: ping <ipv6_addr_of_host1>  
+&ensp;  &ensp;  systemctl stop firewalld  
+&ensp;  &ensp;  systemctl disable firewalld  
              
 ## Host WebServer on Host1 and access it from Host2
-On Host1: dnf install httpd -y  
+&ensp;  On Host1: dnf install httpd -y  
           systemctl start httpd  
           systemctl enable httpd  
           systemctl status httpd  
@@ -139,7 +139,7 @@ Save the file and exit.(i.e. 'cntrl+X' then 'Y' then 'Enter')
 Now go to browser and type:  
           http://[<your ip addr>]  
 
-On Host2: Go to browser and type:  
+&ensp;  On Host2: Go to browser and type:  
           http://[host1 ip addr>]  
 
 Now,let us capture and analyse the packets using wireshark.   
