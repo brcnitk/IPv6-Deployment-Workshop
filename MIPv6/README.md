@@ -31,7 +31,8 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 -   Correspondent-Node : Network-3 (1 Adapter)
 -   Mobile-Node : Network-1 (1 Adapter)
 
-## Network Interface Configuration Commands (Only for Router and Home Agent):
+## Network Interface Configuration on Home Agent and Router:
+### Home Agent
 1. Use the following commands to configure the network interface:
      ```
      nmcli c
@@ -76,6 +77,9 @@ Repeat the above step from 2 to 3 to create another file for network interface 2
     method=manual
     route1=2001:db8:3::/64,2001:db8:2::2
     ```
+### Router
+Repeat the above step 1 onwards in Router as per the folowing changes.
+
 -   **Router Interface 1:**
     ```
     address1=2001:db8:2::2/64
