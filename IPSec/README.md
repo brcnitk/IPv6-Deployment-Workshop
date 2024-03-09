@@ -109,7 +109,7 @@ Now, let us make these networks in the VM Manager
 ## Check Status of radvd on Gateway1 and Gateway2
 Start Gateway1 and Gateway2 Virtual Machines.    
 Run this command to make sure radvd is active(running) and enabled:  
-&emsp;On Gateway1:  
+&emsp;On Gateway1:    
 systemctl status radvd  
 systemctl stop firewalld  
 systemctl disable firewalld  
@@ -121,15 +121,18 @@ systemctl disable firewalld
 Now, Minimise Gateway1 and Gateway2.Do not turn them off. Then,  
 
 Start Host1 and Host2 Virtual Machines.  
-&emsp;On Host1: ping <ipv6_addr_of_host2>  
+&emsp;On Host1:   
+ping <ipv6_addr_of_host2>    
   systemctl stop firewalld  
   systemctl disable firewalld  
-&emsp;  On Host2: ping <ipv6_addr_of_host1>  
+&emsp;  On Host2:   
+ping <ipv6_addr_of_host1>  
   systemctl stop firewalld  
  systemctl disable firewalld  
              
 ## Host WebServer on Host1 and access it from Host2
-&emsp;  On Host1: dnf install httpd -y  
+&emsp;  On Host1:   
+dnf install httpd -y  
           systemctl start httpd  
           systemctl enable httpd  
           systemctl status httpd  
