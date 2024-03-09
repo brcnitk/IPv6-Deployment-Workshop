@@ -84,6 +84,8 @@ Now, refresh the browser on Host2 and you should be able to see HTTP and TCP pac
 
 Right click on any TCP packet and select "Follow">"TCP Stream". Here, you can see the text of the page is completely visible.   
 
+## Install strongswan and Configure ipsec connection between Host1 and Host2
+
 
 
 
