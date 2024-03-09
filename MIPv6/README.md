@@ -298,7 +298,10 @@ ifconfig
 14. Ping from the Correspondence Node to the Mobile Node using the HoA.
 15. Move the Mobile Node from the Home Network to the Foreign Network.
 16. Check the reachability.
-17. Capture the Packet from Wireshark. Start the wireshark using:
+17. Check the tunnel in Mobile Node
+![alt text](images/tunnel_1.PNG)
+
+18. Capture the Packet from Wireshark. Start the wireshark using:
 ```
 sudo wireshark
 ```
