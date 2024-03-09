@@ -121,7 +121,6 @@ interface enp0s8
         AdvValidLifetime 12000;
     };
 };
-
 ```
 
 - Router
@@ -140,7 +139,6 @@ interface enp0s9
         AdvRouterAddr on;
     };
 };
-
 ```
 
 ### radvd start and on-bootup setting
@@ -158,8 +156,8 @@ systemctl status radvd
 ```
 
 ### Kernel Parameter Configuration
-1. Create a file named as `zz-test.conf` in `/etc/sysctl.d/` directory to change the kernel configuration.
-Here `zz` is used before the file name, as systcl configuration files are sorted in lexicographical order. This means that any settings in this file will override the same settings in other files with prefixes that come earlier in lexicographic order, giving it higher priority.
+1. Create a file named `zz-test.conf` in `/etc/sysctl.d/` directory to change the kernel configuration.
+Here `zz` is used before the file name, as systcl configuration files are sorted in lexicographical order. This means that any settings in this file will override the same settings in other files with prefixes that come earlier in lexicographic order, giving it a higher priority.
 
 2. Make the following changes in the `zz-test.conf` file:
 - Home Agent
@@ -168,7 +166,6 @@ net.ipv6.conf.all.forwarding = 1
 net.ipv6.conf.all.autoconf = 0
 net.ipv6.conf.all.accept_ra = 0
 net.ipv6.conf.all.accept_redirects = 0
-
 ```
 - Router
 ```
@@ -176,7 +173,6 @@ net.ipv6.conf.all.forwarding = 1
 net.ipv6.conf.all.autoconf = 0
 net.ipv6.conf.all.accept_ra = 0
 net.ipv6.conf.all.accept_redirects = 0
-
 ```
 - Mobile Node
 ```
@@ -184,7 +180,6 @@ net.ipv6.conf.all.forwarding = 0
 net.ipv6.conf.all.autoconf = 1
 net.ipv6.conf.all.accept_ra = 1
 net.ipv6.conf.all.accept_redirects = 1
-
 ```
 - Correspondence Node
 ```
@@ -192,21 +187,20 @@ net.ipv6.conf.all.forwarding = 0
 net.ipv6.conf.all.autoconf = 1
 net.ipv6.conf.all.accept_ra = 1
 net.ipv6.conf.all.accept_redirects = 1
-
 ```
 ### Disabling the Firewall
 
-Firewall should be disabled in all the virtual machines as it works as security barriers, controlling what traffic enters the network and what will exit it. It may block some traffic in tunnel.
+The firewall should be disabled in all the virtual machines as it works as a security barrier, controlling what traffic enters the network and what will exit it. It may block some traffic in the tunnel.
 
-By disabling we are simplifying the testing environment by eliminating the chances of filteration of traffic.
+By disabling it, we are simplifying the testing environment by eliminating the chances of filtration of traffic.
 
-To disable the firewall use:
+To disable the firewall, use:
 ```
 systemctl disable firewalld 
 ```
 
 ### Disable the NAT / Internet
-NAT should be disabled via the Network settings in VirtualBox for each VM in order to avoid the packet going into that interface which may leads to packet loss.
+NAT should be disabled via the Network settings in VirtualBox for each VM in order to avoid the packet going into that interface which may lead to packet loss.
 Alternatively, you may turn off the interface which is connected to the Internet in the settings for each of the VMs.
 
 
@@ -218,7 +212,7 @@ Alternatively, you may turn off the interface which is connected to the Internet
 sudo dnf install ~/Downloads/mipv6-daemon-1.0-5.el7.x86_64.rpm
 ```
 > **Note**
-- mip6d should be installed only in Home Agent (HA), Mobile Node (MN), Correspondent Node (CN).
+- mip6d should be installed only in Home Agent (HA), Mobile Node (MN), and Correspondent Node (CN).
 ### mip6d configuration
 - Home Agent
 ```
@@ -227,7 +221,6 @@ DebugLevel 10;
 DoRouteOptimizationCN enabled;
 Interface "enp0s8";
 UseMnHaIPsec disabled;
-
 ```
 - Mobile Node
 ```
@@ -242,14 +235,12 @@ MnHomeLink "enp0s8" {
     HomeAgentAddress 2001:db8:1::1;
     HomeAddress 2001:db8:1::2/64;
 }
-
 ```
 - Correspondence Node
 ```
 NodeConfig CN;
 DebugLevel 10;
 DoRouteOptimizationCN enabled;
-
 ```
 
 
