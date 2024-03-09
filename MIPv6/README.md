@@ -37,7 +37,7 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
      nmcli c
      nmcli c edit $uuid
      ```
-    The `nmcli` command is used to manage the network connections in linux. It is used to create, delete, activate and deactivate the network interface. To know more about this command visit [Configuring IP Networking with nmcli - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli).
+    The `nmcli` command is used to manage the network connections in Linux. It is used to create, delete, activate and deactivate the network interface. To know more about this command visit [Configuring IP Networking with nmcli - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli).
 
     ![img](images/nmcli_command.PNG)
     
@@ -58,32 +58,32 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 
 5. A file is formed at `/etc/NetworkManager/systemconnection/` named as `Wired connection 1.nmconnection`.
 
-![img](images/nm_file.PNG)
+![img](images/ha_int_1.PNG)
 
 6. Open the file and do the following changes:
 -   **Home Agent Interface 1:**
     ```
-    address1=2001:db8:aaaa:3::1/64
+    address1=2001:db8:1::1/64
     method=manual
     ```
-Repeat the above step from 2 to 3 to create another file for network interface 2. Here the file name will be `Wired connection 2.nmconnection` and you have to do make changes in this file.
+Repeat the above step from 2 to 3 to create another file for network interface 2. Here the file name will be `Wired connection 2.nmconnection` and you have to make changes in this file.
 
-![img](images/nm_file_1.PNG)
+![img](images/ha_int_2.PNG)
 -   **Home Agent Interface 2:**
     ```
-    address1=2001:db8:aaaa:2::2/64
+    address1=2001:db8:2::1/64
     method=manual
-    route1=2001:db8:aaaa:1::/64,2001:db8:aaaa:2::1
+    route1=2001:db8:3::/64,2001:db8:2::2
     ```
 -   **Router Interface 1:**
     ```
-    address1=2001:db8:aaaa:2::1/64
+    address1=2001:db8:2::2/64
     method=manual
-    route1=2001:db8:aaaa:3::/64,2001:db8:aaaa:2::2
+    route1=2001:db8:1::/64,2001:db8:2::1
     ```
 -   **Router Interface 2:**
     ```
-    address1=2001:db8:aaaa:1::1/64
+    address1=2001:db8:3::1/64
     method=manual
     ```
 
@@ -111,7 +111,7 @@ interface enp0s8
     HomeAgentLifetime 10000;
     HomeAgentPreference 20;
     AdvHomeAgentInfo on;
-    prefix 2001:db8:aaaa:3::1/64
+    prefix 2001:db8:1::1/64
     {
         AdvRouterAddr on;
         AdvOnLink on;
@@ -132,7 +132,7 @@ interface enp0s9
     MinRtrAdvInterval 1;
     MaxRtrAdvInterval 3;
     AdvHomeAgentFlag off;
-    prefix 2001:db8:aaaa:1::1/64
+    prefix 2001:db8:3::1/64
     {
         AdvOnLink on;
         AdvAutonomous on;
@@ -237,8 +237,8 @@ UseMnHaIPsec disabled;
 DoRouteOptimizationMN enabled;
 UseCnBuAck enabled;
 MnHomeLink "enp0s8" {
-    HomeAgentAddress 2001:db8:aaaa:3::1;
-    HomeAddress 2001:db8:aaaa:3::2/64;
+    HomeAgentAddress 2001:db8:1::1;
+    HomeAddress 2001:db8:1::2/64;
 }
 
 ```
