@@ -110,14 +110,22 @@ Now, let us make these networks in the VM Manager
 -Start Gateway1 and Gateway2 Virtual Machines.    
 -Run this command to make sure radvd is active(running) and enabled:  
 &emsp;On Gateway1:    
-**systemctl status radvd**  
-**systemctl stop firewalld**  
-**systemctl disable firewalld**  
-&emsp;On Gateway2:  
-**systemctl status radvd**  
-**systemctl stop firewalld**  
-**systemctl disable firewalld**  
+<p align="center">
 
+systemctl status radvd  
+systemctl stop firewalld  
+systemctl disable firewalld  
+
+</p>
+ 
+&emsp;On Gateway2:  
+<p align="center">
+   
+systemctl status radvd  
+systemctl stop firewalld 
+systemctl disable firewalld
+
+</p>
 -Now, Minimise Gateway1 and Gateway2.Do not turn them off. Then,  
 
 -Start Host1 and Host2 Virtual Machines.  
