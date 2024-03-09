@@ -23,7 +23,7 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 
 ![img](images/Network_interface_creation.jpg)
 
-2. Name the network interface as mip-h (Home Network), mip-r (Router Network), mip-f (Foreign Network).
+2. Name the network interface as Network-1 (Home Network), Network-2 (Router Network), Network-3 (Foreign Network).
 
 3. Assign the following network interface to the following Virtual Machine:
 -   Home-Agent : Network-1, Network-2 (2 Interface)
