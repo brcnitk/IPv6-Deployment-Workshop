@@ -193,6 +193,20 @@ net.ipv6.conf.all.accept_ra = 1
 net.ipv6.conf.all.accept_redirects = 1
 
 ```
+### Disabling the Firewall
+
+Firewall should be disabled in all the virtual machines as it works as security barriers, controlling what traffic enters the network and what will exit it. It may block some traffic in tunnel.
+
+By disabling we are simplifying the testing environment by eliminating the chances of filteration of traffic.
+
+To disable the firewall use:
+```
+systemctl disable firewalld 
+```
+
+### Disable the NAT
+NAT should be disabled in order to avoid the packet going into that interface which may leads to packet loss.
+
 
 ### mip6d installation
 1. Download the rpm file of mip6d from [Linux@ CERN mipv6 - daemon website ](https://linuxsoft.cern.ch/cern/centos/7/updates/x86_64/repoview/mipv6-daemon.html)
@@ -236,16 +250,6 @@ DoRouteOptimizationCN enabled;
 
 ```
 
-### Disabling the Firewall
-
-Firewall should be disabled in all the virtual machines as it works as security barriers, controlling what traffic enters the network and what will exit it. It may block some traffic in tunnel.
-
-By disabling we are simplifying the testing environment by eliminating the chances of filteration of traffic.
-
-To disable the firewall use:
-```
-systemctl disable firewalld 
-```
 
 ## Testing the Testbed
 1. After doing the configuration in all Virtual machine, disable the NAT network in VM network settings.
