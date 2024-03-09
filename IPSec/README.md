@@ -143,7 +143,7 @@ Also, go to a section having <Directory></Directory> and inside it change the 'R
 Save the file and exit.(i.e. 'cntrl+X' then 'Y' then 'Enter')  
           systemctl restart httpd  
 Now go to browser and type:  
-          http://[<your ip addr>]  
+          http://[host1 ip addr>]  
 
 &emsp;  On Host2: Go to browser and type:  
           http://[host1 ip addr>]  
