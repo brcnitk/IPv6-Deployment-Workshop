@@ -302,8 +302,8 @@ ifconfig
 ```
 sudo wireshark
 ```
-    ![alt text](images/wireshark.PNG)
-    ![alt text](images/wireshark_1.PNG)
+![alt text](images/wireshark.PNG)
+![alt text](images/wireshark_1.PNG)
 
 ## Conclusion
 Following these instructions will help you set up a testbed environment for Mobile IPv6 using Fedora virtual machines in Oracle VirtualBox. Ensure to follow each step carefully to achieve the desired configuration.
