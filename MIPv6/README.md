@@ -100,6 +100,7 @@ sudo dnf install radvd
 - radvd should be installed only in Home Agent (HA), Router.
 
 ### radvd configuration
+Open the file named as `radvd.conf` in `/etc/` directory and do the following configuration:
 - Home Agent
 ```
 interface enp0s8
@@ -220,6 +221,7 @@ sudo dnf install ~/Downloads/mipv6-daemon-1.0-5.el7.x86_64.rpm
 > **Note**
 - mip6d should be installed only in Home Agent (HA), Mobile Node (MN), Correspondent Node (CN).
 ### mip6d configuration
+Open the file named as `mip6d.conf` in `/etc/` directory and do the following configuration:
 - Home Agent
 ```
 NodeConfig HA;
