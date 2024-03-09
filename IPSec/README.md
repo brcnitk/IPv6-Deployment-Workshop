@@ -110,43 +110,43 @@ Now, let us make these networks in the VM Manager
 Start Gateway1 and Gateway2 Virtual Machines.    
 Run this command to make sure radvd is active(running) and enabled:  
 &emsp;On Gateway1:    
-systemctl status radvd  
-systemctl stop firewalld  
-systemctl disable firewalld  
+**systemctl status radvd**  
+**systemctl stop firewalld**  
+**systemctl disable firewalld**  
 &emsp;On Gateway2:  
-systemctl status radvd  
-systemctl stop firewalld  
-systemctl disable firewalld  
+**systemctl status radvd**  
+**systemctl stop firewalld**  
+**systemctl disable firewalld**  
 
 Now, Minimise Gateway1 and Gateway2.Do not turn them off. Then,  
 
 Start Host1 and Host2 Virtual Machines.  
 &emsp;On Host1:   
-ping <ipv6_addr_of_host2>    
-  systemctl stop firewalld  
-  systemctl disable firewalld  
+**ping <ipv6_addr_of_host2>**    
+**systemctl stop firewalld**  
+**systemctl disable firewalld**  
 &emsp;  On Host2:   
-ping <ipv6_addr_of_host1>  
-  systemctl stop firewalld  
- systemctl disable firewalld  
+**ping <ipv6_addr_of_host1>**  
+**systemctl stop firewalld**  
+**systemctl disable firewalld**  
              
 ## Host WebServer on Host1 and access it from Host2
 &emsp;  On Host1:   
-dnf install httpd -y  
-          systemctl start httpd  
-          systemctl enable httpd  
-          systemctl status httpd  
+**dnf install httpd -y**  
+**systemctl start httpd**  
+**systemctl enable httpd**  
+**systemctl status httpd**  
 After typing the next command, the configuration file will open.  
-          nano /etc/httpd/conf/httpd.conf  
+          **nano /etc/httpd/conf/httpd.conf**  
 Here, go to the 'Listen 80' and change it to 'Listen [<your device ip>]:80'.   
 Also, go to a section having <Directory></Directory> and inside it change the 'Require all denied' to 'Require all granted'.  
 Save the file and exit.(i.e. 'cntrl+X' then 'Y' then 'Enter')  
-          systemctl restart httpd  
+          **systemctl restart httpd**  
 Now go to browser and type:  
-          http://[host1 ip addr>]  
+          **http://[host1 ip addr>]**  
 
 &emsp;  On Host2: Go to browser and type:  
-          http://[host1 ip addr>]  
+          **http://[host1 ip addr>]**  
 
 Now,let us capture and analyse the packets using wireshark.   
 On Host2: sudo wireshark  
