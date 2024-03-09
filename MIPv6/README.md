@@ -1,4 +1,4 @@
-# Testbed Setup for Mobile IPv6
+# Mobile IPv6 (MIPv6) Testbed
 
 ![img](images/Architecture.png)
 
