@@ -1,5 +1,7 @@
 # Testbed Setup for Mobile IPv6
 
+![img](images/Architecture.png)
+
 ## Overview
 This README provides step-by-step instructions for setting up a testbed environment for Mobile IPv6 using Fedora virtual machines in Oracle VirtualBox. The testbed will consist of four virtual machines: Home-Agent, Mobile-Node, Router, and Correspondent-Node.
 
