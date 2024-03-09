@@ -25,11 +25,11 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 
 2. Name the network interface as Network-1 (Home Network), Network-2 (Router Network), Network-3 (Foreign Network).
 
-3. Assign the following network interface to the following Virtual Machine:
--   Home-Agent : Network-1, Network-2 (2 Interface)
--   Router : Network-2, Network-3 (2 Interface)
--   Correspondent-Node : Network-3 (1 Interface)
--   Mobile-Node : Network-1 (1 Interface)
+3. Attach the networks to the following Virtual Machines:
+-   Home-Agent : Network-1, Network-2 (2 Adapters)
+-   Router : Network-2, Network-3 (2 Adapters)
+-   Correspondent-Node : Network-3 (1 Adapter)
+-   Mobile-Node : Network-1 (1 Adapter)
 
 #### Network Interface Configuration Commands (Only for Router and Home Agent):
 1. Use the following commands to configure the network interface:
@@ -37,7 +37,7 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
      nmcli c
      nmcli c edit $uuid
      ```
-    The `nmcli` command is used to manage the network connections in Linux. It is used to create, delete, activate and deactivate the network interface. To know more about this command visit [Configuring IP Networking with nmcli - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli).
+    The `nmcli` command is used to manage network connections in Linux. It is used to create, delete, activate and deactivate the network interface. To know more about this command visit [Configuring IP Networking with nmcli - RedHat](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/networking_guide/sec-configuring_ip_networking_with_nmcli).
 
     ![img](images/nmcli_command.PNG)
     
@@ -56,17 +56,18 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
     quit
     ```
 
-5. A file is formed at `/etc/NetworkManager/systemconnection/` named as `Wired connection 1.nmconnection`.
+5. On saving, a file is formed at `/etc/NetworkManager/systemconnection/` named as `Wired connection 1.nmconnection`.
+Note: The connection number may differ depending upon your socket.
 
 ![img](images/ha_int_1.PNG)
 
-6. Open the file and do the following changes:
+6. Open the file in sudo mode and make the following changes:
 -   **Home Agent Interface 1:**
     ```
     address1=2001:db8:1::1/64
     method=manual
     ```
-Repeat the above step from 2 to 3 to create another file for network interface 2. Here the file name will be `Wired connection 2.nmconnection` and you have to make changes in this file.
+Repeat the above step from 2 to 3 to create another file for network interface 2. Here the file name will be `Wired connection 2.nmconnection` and you will have to make changes in this file.
 
 ![img](images/ha_int_2.PNG)
 -   **Home Agent Interface 2:**
@@ -89,10 +90,10 @@ Repeat the above step from 2 to 3 to create another file for network interface 2
 
 ### radvd installation
 
-1. Download and Install the radvd using the following command:
+1. Download and install the radvd using the following command:
 
 ```
-dnf install radvd
+sudo dnf install radvd
 ```
 
 > **Note**
@@ -157,10 +158,10 @@ systemctl status radvd
 ```
 
 ### Kernel Parameter Configuration
-1. Create a file named as `zz-mip6d.conf` in `/etc/sysctl.d/` directory to change the kernel configuration.
-Here `zz` is used before the file name to give it higher priority.
+1. Create a file named as `zz-test.conf` in `/etc/sysctl.d/` directory to change the kernel configuration.
+Here `zz` is used before the file name, as systcl configuration files are sorted in lexicographical order. This means that any settings in this file will override the same settings in other files with prefixes that come earlier in lexicographic order, giving it higher priority.
 
-2. Make the following changes in the `zz-mip6d.conf` file:
+2. Make the following changes in the `zz-test.conf` file:
 - Home Agent
 ```
 net.ipv6.conf.all.forwarding = 1
@@ -204,8 +205,9 @@ To disable the firewall use:
 systemctl disable firewalld 
 ```
 
-### Disable the NAT
-NAT should be disabled in order to avoid the packet going into that interface which may leads to packet loss.
+### Disable the NAT / Internet
+NAT should be disabled via the Network settings in VirtualBox for each VM in order to avoid the packet going into that interface which may leads to packet loss.
+Alternatively, you may turn off the interface which is connected to the Internet in the settings for each of the VMs.
 
 
 ### mip6d installation
@@ -213,7 +215,7 @@ NAT should be disabled in order to avoid the packet going into that interface wh
 
 2. Install the mip6d using the following command:
 ```
-dnf install ~/Downloads/mipv6-daemon
+sudo dnf install ~/Downloads/mipv6-daemon-1.0-5.el7.x86_64.rpm
 ```
 > **Note**
 - mip6d should be installed only in Home Agent (HA), Mobile Node (MN), Correspondent Node (CN).
