@@ -111,11 +111,9 @@ Now, let us make these networks in the VM Manager
 -Run this command to make sure radvd is active(running) and enabled:  
 &emsp;On Gateway1:    
 <p align="center">
-
 systemctl status radvd  
 systemctl stop firewalld  
 systemctl disable firewalld  
-
 </p>
  
 &emsp;On Gateway2:  
