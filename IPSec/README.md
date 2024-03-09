@@ -107,8 +107,8 @@ Now, let us make these networks in the VM Manager
 
 
 ## Check Status of radvd on Gateway1 and Gateway2
-Start Gateway1 and Gateway2 Virtual Machines.    
-Run this command to make sure radvd is active(running) and enabled:  
+-Start Gateway1 and Gateway2 Virtual Machines.    
+-Run this command to make sure radvd is active(running) and enabled:  
 &emsp;On Gateway1:    
 **systemctl status radvd**  
 **systemctl stop firewalld**  
@@ -118,9 +118,9 @@ Run this command to make sure radvd is active(running) and enabled:
 **systemctl stop firewalld**  
 **systemctl disable firewalld**  
 
-Now, Minimise Gateway1 and Gateway2.Do not turn them off. Then,  
+-Now, Minimise Gateway1 and Gateway2.Do not turn them off. Then,  
 
-Start Host1 and Host2 Virtual Machines.  
+-Start Host1 and Host2 Virtual Machines.  
 &emsp;On Host1:   
 **ping <ipv6_addr_of_host2>**    
 **systemctl stop firewalld**  
@@ -136,21 +136,21 @@ Start Host1 and Host2 Virtual Machines.
 **systemctl start httpd**  
 **systemctl enable httpd**  
 **systemctl status httpd**  
-After typing the next command, the configuration file will open.  
+-After typing the next command, the configuration file will open.  
           **nano /etc/httpd/conf/httpd.conf**  
-Here, go to the 'Listen 80' and change it to 'Listen [<your device ip>]:80'.   
+Here, go to the 'Listen 80' and change it to **'Listen [<youripaddr>]:80'.**   
 Also, go to a section having <Directory></Directory> and inside it change the 'Require all denied' to 'Require all granted'.  
 Save the file and exit.(i.e. 'cntrl+X' then 'Y' then 'Enter')  
           **systemctl restart httpd**  
-Now go to browser and type:  
+Then, go to browser and type:  
           **http://[host1 ip addr>]**  
 
 &emsp;  On Host2: Go to browser and type:  
           **http://[host1 ip addr>]**  
 
-Now,let us capture and analyse the packets using wireshark.   
-On Host2: sudo wireshark  
-On Host1: sudo wireshark  
+-Capture and analyse the packets using wireshark.   
+&emsp;  On Host2: sudo wireshark  
+&emsp;  On Host1: sudo wireshark  
 Now, refresh the browser on Host2 and you should be able to see HTTP and TCP packets and being travelled from Host1 to Host2.  
 
 Right click on any TCP packet and select "Follow">"TCP Stream". Here, you can see the text of the page is completely visible.   
