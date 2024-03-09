@@ -1,4 +1,4 @@
-# Testbed Setup for Mobile IPv6
+# Mobile IPv6 (MIPv6) Testbed
 
 ![img](images/Architecture.png)
 
@@ -31,7 +31,8 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 -   Correspondent-Node : Network-3 (1 Adapter)
 -   Mobile-Node : Network-1 (1 Adapter)
 
-#### Network Interface Configuration Commands (Only for Router and Home Agent):
+## Network Interface Configuration on Home Agent and Router:
+### Home Agent
 1. Use the following commands to configure the network interface:
      ```
      nmcli c
@@ -76,6 +77,9 @@ Repeat the above step from 2 to 3 to create another file for network interface 2
     method=manual
     route1=2001:db8:3::/64,2001:db8:2::2
     ```
+### Router
+Repeat the above step 1 onwards in Router as per the folowing changes.
+
 -   **Router Interface 1:**
     ```
     address1=2001:db8:2::2/64
@@ -88,7 +92,7 @@ Repeat the above step from 2 to 3 to create another file for network interface 2
     method=manual
     ```
 
-### radvd installation
+## Router Advertisement Daemon (radvd) Installation
 
 1. Download and install the radvd using the following command:
 
@@ -122,7 +126,6 @@ interface enp0s8
         AdvValidLifetime 12000;
     };
 };
-
 ```
 
 - Router
@@ -141,7 +144,6 @@ interface enp0s9
         AdvRouterAddr on;
     };
 };
-
 ```
 
 ### radvd start and on-bootup setting
@@ -159,8 +161,8 @@ systemctl status radvd
 ```
 
 ### Kernel Parameter Configuration
-1. Create a file named as `zz-test.conf` in `/etc/sysctl.d/` directory to change the kernel configuration.
-Here `zz` is used before the file name, as systcl configuration files are sorted in lexicographical order. This means that any settings in this file will override the same settings in other files with prefixes that come earlier in lexicographic order, giving it higher priority.
+1. Create a file named `zz-test.conf` in `/etc/sysctl.d/` directory to change the kernel configuration.
+Here `zz` is used before the file name, as systcl configuration files are sorted in lexicographical order. This means that any settings in this file will override the same settings in other files with prefixes that come earlier in lexicographic order, giving it a higher priority.
 
 2. Make the following changes in the `zz-test.conf` file:
 - Home Agent
@@ -169,7 +171,6 @@ net.ipv6.conf.all.forwarding = 1
 net.ipv6.conf.all.autoconf = 0
 net.ipv6.conf.all.accept_ra = 0
 net.ipv6.conf.all.accept_redirects = 0
-
 ```
 - Router
 ```
@@ -177,7 +178,6 @@ net.ipv6.conf.all.forwarding = 1
 net.ipv6.conf.all.autoconf = 0
 net.ipv6.conf.all.accept_ra = 0
 net.ipv6.conf.all.accept_redirects = 0
-
 ```
 - Mobile Node
 ```
@@ -185,7 +185,6 @@ net.ipv6.conf.all.forwarding = 0
 net.ipv6.conf.all.autoconf = 1
 net.ipv6.conf.all.accept_ra = 1
 net.ipv6.conf.all.accept_redirects = 1
-
 ```
 - Correspondence Node
 ```
@@ -193,25 +192,24 @@ net.ipv6.conf.all.forwarding = 0
 net.ipv6.conf.all.autoconf = 1
 net.ipv6.conf.all.accept_ra = 1
 net.ipv6.conf.all.accept_redirects = 1
-
 ```
 ### Disabling the Firewall
 
-Firewall should be disabled in all the virtual machines as it works as security barriers, controlling what traffic enters the network and what will exit it. It may block some traffic in tunnel.
+The firewall should be disabled in all the virtual machines as it works as a security barrier, controlling what traffic enters the network and what will exit it. It may block some traffic in the tunnel.
 
-By disabling we are simplifying the testing environment by eliminating the chances of filteration of traffic.
+By disabling it, we are simplifying the testing environment by eliminating the chances of filtration of traffic.
 
-To disable the firewall use:
+To disable the firewall, use:
 ```
 systemctl disable firewalld 
 ```
 
 ### Disable the NAT / Internet
-NAT should be disabled via the Network settings in VirtualBox for each VM in order to avoid the packet going into that interface which may leads to packet loss.
+NAT should be disabled via the Network settings in VirtualBox for each VM in order to avoid the packet going into that interface which may lead to packet loss.
 Alternatively, you may turn off the interface which is connected to the Internet in the settings for each of the VMs.
 
 
-### mip6d installation
+## MIPv6 Daemon (mip6d) Installation
 1. Download the rpm file of mip6d from [Linux@ CERN mipv6 - daemon website ](https://linuxsoft.cern.ch/cern/centos/7/updates/x86_64/repoview/mipv6-daemon.html)
 
 2. Install the mip6d using the following command:
@@ -219,7 +217,7 @@ Alternatively, you may turn off the interface which is connected to the Internet
 sudo dnf install ~/Downloads/mipv6-daemon-1.0-5.el7.x86_64.rpm
 ```
 > **Note**
-- mip6d should be installed only in Home Agent (HA), Mobile Node (MN), Correspondent Node (CN).
+- mip6d should be installed only in Home Agent (HA), Mobile Node (MN), and Correspondent Node (CN).
 ### mip6d configuration
 Open the file named as `mip6d.conf` in `/etc/` directory and do the following configuration:
 - Home Agent
@@ -229,7 +227,6 @@ DebugLevel 10;
 DoRouteOptimizationCN enabled;
 Interface "enp0s8";
 UseMnHaIPsec disabled;
-
 ```
 - Mobile Node
 ```
@@ -244,22 +241,20 @@ MnHomeLink "enp0s8" {
     HomeAgentAddress 2001:db8:1::1;
     HomeAddress 2001:db8:1::2/64;
 }
-
 ```
 - Correspondence Node
 ```
 NodeConfig CN;
 DebugLevel 10;
 DoRouteOptimizationCN enabled;
-
 ```
 
 
 ## Testing the Testbed
-1. After doing the configuration in all Virtual machine, disable the NAT network in VM network settings.
+1. After doing the configuration in all Virtual machines, disable the NAT network in VM network settings.
 2. Then disable the internet from the system and reboot the system.
 3. Turn on the `Home-Agent` and `Router` virtual machine.
-4. Check the `radvd status ` in the both machine using following command:
+4. Check the `radvd status ` in both machines using the following command:
 ```
 systemctl status radvd
 ```
@@ -273,8 +268,8 @@ ip a
 ```
 ip a
 ```
-9. Ping from one interface to other to check the reachability.
-10. Start the mip6d by the following order:
+9. Ping from one interface to another to check the reachability.
+10. Start the mip6d in the following order:
 - Correspondence Node
 - Home Agent
 - Mobile Node
@@ -286,12 +281,12 @@ systemctl start mip6d
 ```
 systemctl status mip6d
 ```
-13. Check the tunnel in Mobile Node using:
+13. Check the tunnel in the Mobile Node using:
 ```
 ifconfig
 ```
-14. Ping from Correspondence Node to Mobile Node using the HoA.
-15. Move the Mobile Node from the Home Network to Foreign Network.
+14. Ping from the Correspondence Node to the Mobile Node using the HoA.
+15. Move the Mobile Node from the Home Network to the Foreign Network.
 16. Check the reachability.
 
 ## Conclusion
