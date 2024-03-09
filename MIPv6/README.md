@@ -204,11 +204,6 @@ To disable the firewall, use:
 systemctl disable firewalld 
 ```
 
-### Disable the NAT / Internet
-NAT should be disabled via the Network settings in VirtualBox for each VM in order to avoid the packet going into that interface which may lead to packet loss.
-Alternatively, you may turn off the interface which is connected to the Internet in the settings for each of the VMs.
-
-
 ## MIPv6 Daemon (mip6d) Installation
 1. Download the rpm file of mip6d from [Linux@ CERN mipv6 - daemon website ](https://linuxsoft.cern.ch/cern/centos/7/updates/x86_64/repoview/mipv6-daemon.html)
 
@@ -248,7 +243,9 @@ NodeConfig CN;
 DebugLevel 10;
 DoRouteOptimizationCN enabled;
 ```
-
+### Disable the NAT / Internet
+NAT should be disabled via the Network settings in VirtualBox for each VM in order to avoid the packet going into that interface which may lead to packet loss.
+Alternatively, you may turn off the interface which is connected to the Internet in the settings for each of the VMs.
 
 ## Testing the Testbed
 1. After doing the configuration in all Virtual machines, disable the NAT network in VM network settings.
@@ -268,26 +265,45 @@ ip a
 ```
 ip a
 ```
+![img](images/ip_a.PNG)
 9. Ping from one interface to another to check the reachability.
-10. Start the mip6d in the following order:
-- Correspondence Node
-- Home Agent
-- Mobile Node
-11. Turn on the mobile IPv6 configuration in the virtual machines in the following order using:
+10. Turn on the mobile IPv6 configuration in the virtual machines in the following order using:
 ```
 systemctl start mip6d
 ```
-12. Check the mip6d running status using:
+11. Check the mip6d running status using:
 ```
 systemctl status mip6d
 ```
+12. Start the mip6d in the following order:
+- **Correspondence Node**
+
+    ![img](images/before_start_mip6d_cn.PNG)
+    ![img](images/After_start_mip6d_cn.PNG)
+
+- **Home Agent**
+    ![img](images/mip6d_ha.PNG)
+
+- **Mobile Node**
+    ![img](images/mip6d_mn.PNG)
+
+
+
 13. Check the tunnel in the Mobile Node using:
 ```
 ifconfig
 ```
+![alt text](images/tunnel.PNG)
+
 14. Ping from the Correspondence Node to the Mobile Node using the HoA.
 15. Move the Mobile Node from the Home Network to the Foreign Network.
 16. Check the reachability.
+17. Capture the Packet from Wireshark. Start the wireshark using:
+```
+sudo wireshark
+```
+    ![alt text](images/wireshark.PNG)
+    ![alt text](images/wireshark_1.PNG)
 
 ## Conclusion
 Following these instructions will help you set up a testbed environment for Mobile IPv6 using Fedora virtual machines in Oracle VirtualBox. Ensure to follow each step carefully to achieve the desired configuration.
