@@ -115,7 +115,17 @@ On Host2:
 
 
   ## Capturing traffic and analysing the packets using wireshark
-   sudo wireshark  
+  ### case(i):Without enabling IPsec:
+
+  On Host1:
+  - Disable IPsec connection
+
+         sudo strongswan stop
+
+   On Host2:
+  - Disable IPsec connection
+
+         sudo strongswan stop
 
   
 
