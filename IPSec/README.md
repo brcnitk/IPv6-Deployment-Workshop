@@ -112,7 +112,8 @@ On Host2:
 
           http://[host1 ip addr>]  
 
-- On Host2: Go to browser and type:  
+On Host2:   
+Go to browser and type:  
           
           http://[host1 ip addr>]  
 
