@@ -1,22 +1,17 @@
-# Setting up a basic IPv6 testbed to demonstrate IPsec
+# IPsec Demonstration and Packet Analysis at Network Layer
 ## Introduction
 Before we begin with the demonstration, let us first look at the topology (diagramatic representation) of the network we are going to be working with:
 
 ![Network Topology Image](/IPSec/images/topology.png)
 
-In this topology, there are 2 Clients *comp1* and *comp2* who wish to communicate with each other using IPsec. The two clients are seperated from each other by 2 gateways (i.e., each client is connected to a gateway and the gateways are connected to each other)
+In this topology, there are 2 Clients *host1* and *host2* who wish to communicate with each other using IPsec. The two clients are seperated from each other by 2 gateways (i.e., each client is connected to a gateway and the gateways are connected to each other)
 
-Today, our goal is to enable and explore communication between the 2 clients using IPsec in the transport mode and tunnel mode. 
-
-
-In the Oracle VM VirtualBox Manager, you should be able to see 4 Virtual Machines already set up in your systems
-   - comp1
-   - gateway-1
-   - gateway-2
-   - comp2
-
-
-
+Today, our goal is to 
+- Set up an IPsec connection between Host1 and Host2.
+- Host a Website on Host1 without security mechanisms in layers above Network layer.
+- Analyse the packet traffic generated through the website in two cases.
+  case(i): Without enabling IPsec
+  case(ii): With Enabling IPsec.
 
 
 ## Check Status of radvd on Gateway1 and Gateway2
