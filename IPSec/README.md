@@ -47,11 +47,11 @@ On Host1:
     systemctl stop firewalld  
     systemctl disable firewalld  
 
-  On Host2:   
+On Host2:   
 
-ping <ipv6_addr_of_host1>  
-systemctl stop firewalld  
-systemctl disable firewalld  
+    ping <ipv6_addr_of_host1>  
+    systemctl stop firewalld  
+    systemctl disable firewalld  
              
 ## Host WebServer on Host1 and access it from Host2
   On Host1:   
