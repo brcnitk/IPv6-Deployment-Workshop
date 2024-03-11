@@ -24,9 +24,9 @@ In the Oracle VM VirtualBox Manager, you should be able to see 4 Virtual Machine
 - Run this command to make sure radvd is active(running) and enabled:  
 On Gateway1:    
 
-    systemctl status radvd  
-    systemctl stop firewalld  
-    systemctl disable firewalld  
+     systemctl status radvd  
+     systemctl stop firewalld  
+     systemctl disable firewalld  
 
  
 On Gateway2:  
