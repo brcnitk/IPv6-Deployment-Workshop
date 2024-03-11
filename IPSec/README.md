@@ -52,6 +52,41 @@ On Host2:
     ping <ipv6_addr_of_host1>  
     systemctl stop firewalld  
     systemctl disable firewalld  
+
+## Install strongswan and Configure ipsec connection between Host1 and Host2
+
+- Installing strongswan
+
+      dnf install strongswan  
+
+- Open and Update config file in strongswan library  
+
+    nano /etc/strongswan/ipsec.conf  
+
+  Include the following lines in the config file:  
+
+      conn host-host  
+         authby=secret  
+         auto=route  
+         keyexchange=ikev2  
+         ike=aes256-sha2_256-modp1024!  
+         left=< youripaddr>  
+         right=<receiveripaddr>  
+         type=transport  
+         esp=aes256-sha2_256!  
+  
+  - Open and Update config file in strongswan library  
+
+        nano /etc/strongswan/ipsec.secrets  
+
+    Include the following line in secrets file:  
+
+        <receiveripaddr> : PSK "presharedkey"  
+
+  - Restart strongswan and setup a connection  
+  
+        sudo strongswan restart  
+        sudo strongswan up host-host  
              
 ## Host WebServer on Host1 and access it from Host2
   On Host1:   
@@ -79,39 +114,18 @@ Then, go to browser and type:
 
 Capture and analyse the packets using wireshark.   
  
-  On Host2: sudo wireshark  
-  On Host1: sudo wireshark  
+  On Host2: 
+  
+      sudo wireshark  
+  
+  On Host1: 
+  
+      sudo wireshark  
 
 Now, refresh the browser on Host2 and you should be able to see HTTP and TCP packets and being travelled from Host1 to Host2.  
 
 Right click on any TCP packet and select "Follow">"TCP Stream". Here, you can see the text of the page is completely visible.   
 
-## Install strongswan and Configure ipsec connection between Host1 and Host2
-- Installing strongswan  
-  dnf install strongswan  
-- Open and Update config file in strongswan library  
-  nano /etc/strongswan/ipsec.conf  
-
-  Iclude the following lines in the config file:  
-  conn host-host  
-     authby=secret  
-     auto=route  
-     keyexchange=ikev2  
-     ike=aes256-sha2_256-modp1024!  
-     left=< youripaddr>  
-     right=<receiveripaddr>  
-     type=transport  
-     esp=aes256-sha2_256!  
-  
-  - Open and Update config file in strongswan library  
-    nano /etc/strongswan/ipsec.secrets  
-
-    Include the following line in secrets file:  
-    <receiveripaddr> : PSK "presharedkey"  
-
-  - Restart strongswan and setup a connection  
-    sudo strongswan restart  
-    sudo strongswan up host-host  
 
   ## Capturing traffic and analysing the packets using wireshark
    sudo wireshark  
