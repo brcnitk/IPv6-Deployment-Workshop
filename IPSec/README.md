@@ -121,15 +121,40 @@ On Host2:
   - Disable IPsec connection
 
          sudo strongswan stop
-
-   On Host2:
+    
+  On Host2:
   - Disable IPsec connection
 
          sudo strongswan stop
 
+  On Host2:   
+- Go to browser and type:  
+          
+          http://[host1 ip addr>]
+
+- Wireshark Packet capture:
+
+        sudo dnf install wireshark
+        sudo wireshark
+
+- Refresh the website on browser.
+- On Wireshark you can see that the website is being accessed through HTTP protocol and the text of server website can be clearly seen.
+
+### case(ii):With IPsec enabled:
+
+On Host1 and Host2: 
+- Start Wireshark capturing:
+ 
+       sudo dnf install wireshark
+       sudo wireshark
   
+- Enabling IPsec connection between Host1 and Host2
 
+       sudo strongswan restart
+       sudo strongswan up host-host
 
+- After the above commands, ISAKMP packets will be generated on wireshark. This will create a security association(Handshaking) between Host1 and Host2. Once this is done, The actual data packets will be exchanged.
+- Refresh the website on the browser. This will generate ESP packets on wireshark. Here the content of the website is completely in unreadable form.
 
 
 
