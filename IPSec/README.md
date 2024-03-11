@@ -61,7 +61,7 @@ On Host2:
 
 - Open and Update config file in strongswan library  
 
-    nano /etc/strongswan/ipsec.conf  
+       nano /etc/strongswan/ipsec.conf  
 
   Include the following lines in the config file:  
 
