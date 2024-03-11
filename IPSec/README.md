@@ -40,11 +40,12 @@ On Gateway2:
 - Now, Minimise Gateway1 and Gateway2.Do not turn them off. Then,  
 
 - Start Host1 and Host2 Virtual Machines.  
+
 On Host1:
    
-ping <ipv6_addr_of_host2>    
-systemctl stop firewalld  
-systemctl disable firewalld  
+    ping <ipv6_addr_of_host2>    
+    systemctl stop firewalld  
+    systemctl disable firewalld  
 
   On Host2:   
 
