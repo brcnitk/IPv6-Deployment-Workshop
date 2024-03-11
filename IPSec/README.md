@@ -31,7 +31,7 @@ systemctl disable firewalld
  
 On Gateway2:  
    
-systemctl status radvd  
+    systemctl status radvd  
 systemctl stop firewalld 
 systemctl disable firewalld
 
