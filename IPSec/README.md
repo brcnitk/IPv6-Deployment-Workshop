@@ -52,7 +52,7 @@ Network Interface Setup:
      nmcli c
      nmcli c edit $uuid
 
-The `nmcli` command is used to manage network connections in Linux. It is used to create, delete, activate and deactivate the network interface. To know more about this command visit [Configuring IP Networking with nmcli - RedHat]
+The `nmcli` command is used to manage network connections in Linux. It is used to create, delete, activate and deactivate the network interface. 
     
 2. Replace `$uuid` with the UUID of the network connection you wish to configure. This will open up the NetworkManager editor for the selected connection, allowing you to modify its settings. Then the `nmcli>` interface will appear.
 
