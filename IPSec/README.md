@@ -35,12 +35,14 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 
 2. Name the network interface as Network-1, Network-2 and Network-3.
 
-3. Attach the networks to the following Virtual Machines:
--   Gateway1 : Network-1, Network-2 (2 Adapters)
--   Gateway2 : Network-3, Network-2 (2 Adapters)
--   Host2 : Network-3 (1 Adapter)
--   Host1 : Network-1 (1 Adapter)
+3. Attach the networks to the following Virtual Machines:      
+   (i)Gateway1 : Network-1, Network-2 (2 Adapters)      
+   (ii)Gateway2 : Network-3, Network-2 (2 Adapters)     
+   (iii)Host2 : Network-3 (1 Adapter)       
+    (iv)Host1 : Network-1 (1 Adapter)
 
+- Network Interface Configuration on Gateway1 and Gateway2:
+1. 
 ###    
 - Run this command to make sure radvd is active(running) and enabled:  
 
