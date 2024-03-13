@@ -6,7 +6,7 @@ Before we begin with the demonstration, let us first look at the topology (diagr
 
 In this topology, there are 2 Clients *Host1* and *Host2* who wish to communicate with each other using IPsec. The two clients are seperated from each other by 2 gateways (i.e., each client is connected to a gateway and the gateways are connected to each other)
 
-Our goals for today are:
+Our goals for today are: 
 - Setting up the network topology shown above with the help of **radvd** tool. 
 - Establishing IPsec in two modes using **Strongswan** library.    
     (i)Transport Mode : IPsec protocol is configured at Host1 and Host2.    
@@ -16,21 +16,25 @@ Our goals for today are:
      case(i): Without enabling IPsec connection between Host1 and Host2. This will show us the website content in plain text.
      case(ii): By enabling IPsec in Transport Mode. This will show the website content in cipher text(encrypted) at Host1,Gateway1,Gateway2 and Host2.      
      case(iii): By enabling IPsec in Tunnel Mode. This will show the website content in cipher text(encrypted) at Gateway1 and Gateway2. Whereas, in plain text at Host1 and Host2.
-- Prerequisites:      
+
+
+Prerequisites:      
   (i) Oracle VirtualBox: Download and install Oracle VirtualBox from [Oracle's official website](https://www.virtualbox.org/).      
 (ii) Fedora OS: Download the Fedora ISO image from [Fedora's official website](https://fedoraproject.org/workstation/download).
   
   
   
 ## Setting up the network topology
--  Virtual Machine Creation:    
+Virtual Machine Creation:    
+
 Create four virtual machines in Oracle VirtualBox and name them accordingly:      
 (i) Host1    
 (ii) Host2    
 (iii) Gateway1    
 (iv) Gateway2
 
-- Network Interface Setup:
+Network Interface Setup:
+
 1. Set up the network interfaces of the virtual machines to use an internal network type within VirtualBox. This is done to ensure isolation and control over the network environment, which is crucial for testing purposes.
 
 2. Name the network interface as Network-1, Network-2 and Network-3.
@@ -41,8 +45,6 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
    (iii)Host2 : Network-3 (1 Adapter)       
     (iv)Host1 : Network-1 (1 Adapter)
 
-- Network Interface Configuration on Gateway1 and Gateway2:
-1. 
 ###    
 - Run this command to make sure radvd is active(running) and enabled:  
 
