@@ -25,6 +25,10 @@ Our goals for today are:
 ## Setting up the network topology
 -  Virtual Machine Creation:    
 Create four virtual machines in Oracle VirtualBox and name them accordingly:
+(i) Host1    
+(ii) Host2    
+(iii) Gateway1    
+(iv) Gateway2    
 
 ###    
 - Run this command to make sure radvd is active(running) and enabled:  
