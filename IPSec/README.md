@@ -33,8 +33,6 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 - Network Interface Setup:
 1. Set up the network interfaces of the virtual machines to use an internal network type within VirtualBox. This is done to ensure isolation and control over the network environment, which is crucial for testing purposes.
 
-![img](images/Network_interface_creation.jpg)
-
 2. Name the network interface as Network-1, Network-2 and Network-3.
 
 3. Attach the networks to the following Virtual Machines:
