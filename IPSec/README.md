@@ -16,9 +16,11 @@ Our goals for today are:
      case(i): Without enabling IPsec connection between Host1 and Host2. This will show us the website content in plain text.
      case(ii): By enabling IPsec in Transport Mode. This will show the website content in cipher text(encrypted) at Host1,Gateway1,Gateway2 and Host2.      
      case(iii): By enabling IPsec in Tunnel Mode. This will show the website content in cipher text(encrypted) at Gateway1 and Gateway2. Whereas, in plain text at Host1 and Host2.
-   
+
+  
+  
 ## Setting up the network topology
-- 
+-  
 
 ###    
 - Run this command to make sure radvd is active(running) and enabled:  
