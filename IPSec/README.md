@@ -6,18 +6,21 @@ Before we begin with the demonstration, let us first look at the topology (diagr
 
 In this topology, there are 2 Clients *Host1* and *Host2* who wish to communicate with each other using IPsec. The two clients are seperated from each other by 2 gateways (i.e., each client is connected to a gateway and the gateways are connected to each other)
 
-Today, our goal is to 
+Our goals for today are:
 - Setting up the network topology shown above with the help of **radvd** tool. 
 - Establishing IPsec in two modes using **Strongswan** library.    
     (i)Transport Mode : IPsec protocol is configured at Host1 and Host2.    
     (ii)Tunnel Mode : IPsec protocol is configured at Gateway1 and Gateway2.    
-- Hosting a website at Host1 and accessing it from Host2. This will generate packets which we will analyse in the next section.
+- Hosting a website at Host1 without any security mechanisms at layers above Network layer and accessing it from Host2. This will generate packets which we will analyse in the next section.
 - Analysing packets using **Wireshark** tool. We are going to analyse packets in the following cases:    
-     (i)
+     case(i): Without enabling IPsec connection between Host1 and Host2. This will show us the website content in plain text.
+     case(ii): By enabling IPsec in Transport Mode. This will show the website content in cipher text(encrypted) at Host1,Gateway1,Gateway2 and Host2.      
+     case(iii): By enabling IPsec in Tunnel Mode. This will show the website content in cipher text(encrypted) at Gateway1 and Gateway2. Whereas, in plain text at Host1 and Host2.
+   
+## Setting up the network topology
+- 
 
-
-## Check Status of radvd on Gateway1 and Gateway2
-- Start Gateway1 and Gateway2 Virtual Machines.    
+###    
 - Run this command to make sure radvd is active(running) and enabled:  
 
 On Gateway1:    
