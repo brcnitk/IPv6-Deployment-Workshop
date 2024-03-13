@@ -45,13 +45,16 @@ Network Interface Setup:
    (iii)Host2 : Network-3 (1 Adapter)       
     (iv)Host1 : Network-1 (1 Adapter)
 
-On Gateway1:
+### On Gateway1:
+
+1.Use the following commands to configure the network interface:
+
+     nmcli c
+     nmcli c edit $uuid
 
 The `nmcli` command is used to manage network connections in Linux. It is used to create, delete, activate and deactivate the network interface. To know more about this command visit [Configuring IP Networking with nmcli - RedHat]
     
 2. Replace `$uuid` with the UUID of the network connection you wish to configure. This will open up the NetworkManager editor for the selected connection, allowing you to modify its settings. Then the `nmcli>` interface will appear.
-
-![img](images/nmcli_edit.PNG)
 
 3. To save it use:
     ```
@@ -64,39 +67,40 @@ The `nmcli` command is used to manage network connections in Linux. It is used t
     quit
     ```
 
-5. On saving, a file is formed at `/etc/NetworkManager/systemconnection/` named as `Wired connection 1.nmconnection`.
+5. On saving, a file is formed at `/etc/NetworkManager/system-connections/` named as `Wired connection 1.nmconnection`.
 Note: The connection number may differ depending upon your socket.
 
-![img](images/ha_int_1.PNG)
 
-6. Open the file in sudo mode and make the following changes:
--   **Home Agent Interface 1:**
+6. Open the file in sudo mode using the following command and make the following changes:
+
+        sudo nano /etc/NetworkManager/system-connections/'Wired connection 1.nmconnection'
+   
+-   **Gateway1 Interface 1:**
     ```
     address1=2001:db8:1::1/64
     method=manual
     ```
 Repeat the above step from 2 to 3 to create another file for network interface 2. Here the file name will be `Wired connection 2.nmconnection` and you will have to make changes in this file.
 
-![img](images/ha_int_2.PNG)
--   **Home Agent Interface 2:**
+-   **Gateway1 Interface 2:**
     ```
     address1=2001:db8:2::1/64
     method=manual
     route1=2001:db8:3::/64,2001:db8:2::2
     ```
-### Router
+### On Gateway2:
 Repeat the above step 1 onwards in Router as per the folowing changes.
 
--   **Router Interface 1:**
+-   **Gateway2 Interface 1:**
+    ```
+    address1=2001:db8:3::1/64
+    method=manual
+    ```
+-   **Gateway2 Interface 2:**
     ```
     address1=2001:db8:2::2/64
     method=manual
     route1=2001:db8:1::/64,2001:db8:2::1
-    ```
--   **Router Interface 2:**
-    ```
-    address1=2001:db8:3::1/64
-    method=manual
     ```
 
 ###    
