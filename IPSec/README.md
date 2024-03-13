@@ -28,7 +28,20 @@ Create four virtual machines in Oracle VirtualBox and name them accordingly:
 (i) Host1    
 (ii) Host2    
 (iii) Gateway1    
-(iv) Gateway2    
+(iv) Gateway2
+
+- Network Interface Setup:
+1. Set up the network interfaces of the virtual machines to use an internal network type within VirtualBox. This is done to ensure isolation and control over the network environment, which is crucial for testing purposes.
+
+![img](images/Network_interface_creation.jpg)
+
+2. Name the network interface as Network-1, Network-2 and Network-3.
+
+3. Attach the networks to the following Virtual Machines:
+-   Gateway1 : Network-1, Network-2 (2 Adapters)
+-   Gateway2 : Network-3, Network-2 (2 Adapters)
+-   Host2 : Network-3 (1 Adapter)
+-   Host1 : Network-1 (1 Adapter)
 
 ###    
 - Run this command to make sure radvd is active(running) and enabled:  
